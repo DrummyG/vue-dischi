@@ -6,27 +6,36 @@
         {{ tipo }}
       </option>
     </select>
+
+    <select name="author" id="author" v-model="inputTextTwo" @change="searchTwo">
+      <option value="">all</option>
+      <option :value="tipo" v-for="(tipo, index) in discAuthor" :key="index">
+        {{ tipo }}
+      </option>
+    </select>
   </div>
 </template>
 
 <script>
-import { setSearch } from "../store";
+import { setSearch, setSearchTwo } from "../store";
 export default {
   name: "AppSearch",
   data() {
     return {
       inputText: "",
+      inputTextTwo: ""
     };
   },
-  props: ["discGenre"],
+  props: ["discGenre", "discAuthor"],
   methods: {
     search() {
       setSearch(this.inputText);
+      console.log(this.inputText)
     },
-    reset() {
-      this.inputText = "";
-      setSearch(this.inputText);
-    },
+    searchTwo() {
+      setSearchTwo(this.inputTextTwo);
+      console.log(setSearchTwo(this.inputTextTwo))
+    }
   },
 };
 </script>

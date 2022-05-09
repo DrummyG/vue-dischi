@@ -27,7 +27,6 @@ export default {
     return {
       disc: [],
       loading: false,
-      genre: []
     };
   },
   methods: {
@@ -38,10 +37,16 @@ export default {
       console.log(state.genre)
       return state.genre
     },
+    searchTextTwo(){
+      console.log(state.author)
+      return state.author
+    },
     filteredDisc(){
        return this.disc.filter((item) =>{
         if(item.genre.toLowerCase().includes(this.searchText.toLowerCase())){
-          return true
+          if(item.author.toLowerCase().includes(this.searchTextTwo.toLowerCase())){
+            return true
+          }
         }
       })
     }
@@ -53,11 +58,6 @@ export default {
       .then((res) => {
           this.loading = false
         this.disc = res.data.response;
-        this.disc.forEach((item) =>{
-          if(!this.genre.includes(item.genre)){
-            this.genre.push(item.genre)
-          }
-        })
         console.log(this.disc);
       });
   },

@@ -1,7 +1,7 @@
 <template>
   <header class="d-flex align-items-center ps-2">
     <img src="@/assets/img/logo-small.svg" alt="">
-    <app-search :discGenre="genre"/>
+    <app-search :discGenre="genre" :discAuthor="author"/>
   </header>
 </template>
 
@@ -17,7 +17,8 @@ export default {
   data(){
     return{
       disc: [],
-      genre: []
+      genre: [],
+      author: []
     }
   },
   mounted() {
@@ -28,6 +29,11 @@ export default {
         this.disc.forEach((item) =>{
           if(!this.genre.includes(item.genre)){
             this.genre.push(item.genre)
+          }
+        })
+        this.disc.forEach((item) =>{
+          if(!this.author.includes(item.author)){
+            this.author.push(item.author)
           }
         })
         console.log(this.disc);
