@@ -1,12 +1,11 @@
 <template>
   <header class="d-flex align-items-center ps-2">
     <img src="@/assets/img/logo-small.svg" alt="">
-    <app-search :discGenre="genre" :discAuthor="authorFilter"/>
+    <app-search :discGenre="genre" :discAuthor="author"/>
   </header>
 </template>
 
 <script>
-import state from "../store";
 import axios from "axios";
 import AppSearch from "./AppSearch.vue";
 export default {
@@ -20,21 +19,6 @@ export default {
       disc: [],
       genre: [],
       author: []
-    }
-  },
-  computed: {
-    searchText(){
-      console.log(state.genre)
-      return state.genre
-    },
-    authorFilter(){
-       return this.disc.filter((item) =>{
-        if(item.genre.toLowerCase().includes(this.searchText.toLowerCase())){
-          console.log(item.author)
-          console.log(this.searchText)
-          return item
-        }
-      })
     }
   },
   mounted() {

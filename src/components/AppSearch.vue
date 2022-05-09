@@ -10,7 +10,7 @@
     <select name="author" id="author" v-model="inputTextTwo" @change="searchTwo">
       <option value="">all</option>
       <option :value="tipo" v-for="(tipo, index) in discAuthor" :key="index">
-        {{ tipo.author }}
+        {{ tipo }}
       </option>
     </select>
   </div>
@@ -29,9 +29,11 @@ export default {
   props: ["discGenre", "discAuthor"],
   methods: {
     search() {
+        console.log(this.inputText)
       setSearch(this.inputText);
     },
     searchTwo() {
+        console.log(this.inputTextTwo)
       setSearchTwo(this.inputTextTwo);
     }
   },
