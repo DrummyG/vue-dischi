@@ -49,7 +49,8 @@ export default {
           }
         }
       })
-    }
+    },
+    
   },
   mounted() {
       this.loading = true

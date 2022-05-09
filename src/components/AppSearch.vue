@@ -30,15 +30,20 @@ export default {
   methods: {
     search() {
       setSearch(this.inputText);
-      console.log(this.inputText)
     },
     searchTwo() {
       setSearchTwo(this.inputTextTwo);
-      console.log(setSearchTwo(this.inputTextTwo))
     }
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/style/generals.scss";
+select{
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: $main;
+    color: white;
+}
 </style>
