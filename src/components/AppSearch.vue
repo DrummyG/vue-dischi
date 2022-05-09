@@ -10,7 +10,7 @@
     <select name="author" id="author" v-model="inputTextTwo" @change="searchTwo">
       <option value="">all</option>
       <option :value="tipo" v-for="(tipo, index) in discAuthor" :key="index">
-        {{ tipo }}
+        {{ tipo.author }}
       </option>
     </select>
   </div>
